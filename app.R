@@ -8,9 +8,10 @@ library(shinyMatrix)
 library(igraph)
 library(dplyr)
 library(DT)
+library(shinyWidgets)
 
 # App Meta Data----------------------------------------------------------------
-APP_TITLE  <<- "[Weighted Graphs]"
+APP_TITLE  <<- "Weighted Graphs"
 APP_DESCP  <<- "This app explores the applications of Markov Chains to weighted graphs"
 
 # End App Meta Data------------------------------------------------------------
@@ -454,8 +455,8 @@ ui <- list(
           ),
           p(
             class = "hangingindent", 
-            "Csardi, G. and Nepusz, T. (2006), igraph: The igraph software package for complex 
-            network research, InterJournal, Complex Systems 1695. 
+            "Csardi, G. and Nepusz, T. (2006), igraph: The igraph software package 
+            for complex network research, InterJournal, Complex Systems 1695. 
             http://igraph.org"
           ), 
           p(
@@ -464,6 +465,12 @@ ui <- list(
             package, R package. Available from 
             https://CRAN.R-project.org/package=shinyMatrix"
           ), 
+          p(
+            class = "hangingindent",
+            "Perrier, V., Meyer, F., and Granjon, D. (2020), shinyWidgets: Custom 
+            Inputs Widgets for Shiny, R package. Available from
+            https://CRAN.R-project.org/package=shinyWidgets"
+          ),
           p(
             class = "hangingindent", 
             HTML(paste("Ross S. M. (2014),", tags$em("Introduction to Probability Models"), 
@@ -481,6 +488,7 @@ ui <- list(
             R Package. Springer-Verlag New York. Available from
             https://ggplot2.tidyverse.org"
           ),
+          
           p(
             class = "hangingindent",
             "Xie, Y., Cheng, J. and Tan X. (2020), DT: A Wrapper of the 
@@ -500,10 +508,9 @@ server <- function(input, output, session) {
       session = session,
       title = "Instructions:",
       text = "In this app, you will explore the relationship between weighted 
-      graphs and Markov chains. After reviewing the prerequisites, explore the 
-      topic by creating weighted graphs and their corresponding transition 
-      matricies. Then go to the challenge section to solve a more applied 
-      problem related to weighted graphs.",
+      graphs and Markov chains. Explore the topic by creating weighted graphs 
+      and their corresponding transition matricies. Then go to the challenge 
+      section to solve a more applied problem related to weighted graphs.",
       type = "info"
     )
   })
