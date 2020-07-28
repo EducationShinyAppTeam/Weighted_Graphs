@@ -516,6 +516,16 @@ server <- function(input, output, session) {
     )
   })
   
+  # Go button on Overview page
+  observeEvent(
+    eventExpr = input$go1, 
+    handlerExpr = { 
+      updateTabItems(session, 
+                     inputId = "tabs", 
+                     selected = "Explore" 
+      ) 
+    })
+  
   #Makes sure weights are numeric
   weights<-reactive({as.numeric(input$weights)})
   
@@ -672,26 +682,17 @@ server <- function(input, output, session) {
     output$fillinFeedback1 <- renderUI({correctnessPic(input$fillinAns1 == 
                                                          "squares on the board")})
     output$fillinFeedback2 <- renderUI({correctnessPic(input$fillinAns2 == 
-                                                         "potential moves from the 
-                                                     knight's position")})
+                                                         "potential moves from the knight's 
+                                               position")})
     output$fillinFeedback3 <- renderUI({correctnessPic(!(is.null(input$fillinAns3)) 
                                                        && input$fillinAns3 == 64)})
     output$fillinFeedback4 <- renderUI({correctnessPic(input$fillinAns4 == "vertex")})
     output$fillinFeedback5 <- renderUI({correctnessPic(input$fillinAns5 == "edge")})})
   
   correctFillInAns <- eventReactive(input$submitFillIn, {
-    print(c(input$fillinAns1 == "squares on the board", 
-            input$fillinAns2 == "potential moves from the knight's position", 
-            !(is.null(input$fillinAns3)) && input$fillinAns3 == 64,
-            input$fillinAns4 == "vertex",
-            input$fillinAns5 == "edge"))
-    print(c(input$fillinAns1 == "squares on the board", 
-            input$fillinAns2 == "potential moves from the knight's position", 
-            !(is.null(input$fillinAns3)) && input$fillinAns3 == 64,
-            input$fillinAns4 == "vertex",
-            input$fillinAns5 == "edge"))
     c(input$fillinAns1 == "squares on the board", 
-      input$fillinAns2 == "potential moves from the knight's position", 
+      input$fillinAns2 == "potential moves from the knight's 
+                                               position", 
       !(is.na(input$fillinAns3)) && input$fillinAns3 == 64,
       input$fillinAns4 == "vertex",
       input$fillinAns5 == "edge")
