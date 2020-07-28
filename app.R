@@ -44,7 +44,7 @@ correctnessText <- function(condition){
 ui <- list(
   tags$head(
     tags$link(rel = "stylesheet", type = "text/css",
-  href = "https://educationshinyappteam.github.io/Style_Guide/theme/boast.css")
+              href = "https://educationshinyappteam.github.io/Style_Guide/theme/boast.css")
   ),
   ## Create the app page
   dashboardPage(
@@ -115,7 +115,7 @@ ui <- list(
             appear in the graph. Then, calculate the transition matrix for the 
             corresponding Markov chain as well as the long run probabilities
             for the chain. "),
-         
+          
           fluidRow(
             # Title
             titlePanel("Weighted Graphs and Markov Chains"),
@@ -155,6 +155,7 @@ ui <- list(
                 width=6
               )
             ),
+            fluidRow(
               column(width=6,
                      "What are the probabilities for the transition matrix 
                      corresponding to your weighted graph? Write your 
@@ -169,12 +170,12 @@ ui <- list(
                        nodes \\(i\\) and \\(j\\)."
                      ),
                      fluidRow(
-                       column(width = 3, 
-                     actionButton("check", "Check Answer")),
-                     column(width = 3, uiOutput("correctness"))),
+                       column(width = 4, 
+                              actionButton("check", "Check Answer")),
+                       column(width = 8, uiOutput("correctness"))),
                      actionButton("displayMat", "Show Answer"),
                      tableOutput("chainMat")
-                     ),
+              ),
               column(width=6,
                      "What are the long run probabilities for each state? Write 
                      your probabilities as decimals to at least 2 decimal places.",
@@ -191,11 +192,11 @@ ui <- list(
                        transition matrix."
                      ),
                      fluidRow(
-                     column(width = 3, actionButton("checkLR", "Check Answer")),
-                     column(width = 3, uiOutput("correctnessLR"))),
+                       column(width = 4, actionButton("checkLR", "Check Answer")),
+                       column(width = 8, uiOutput("correctnessLR"))),
                      actionButton("displayLR", "Show Answer"),
                      tableOutput("longRun")
-            ))),
+              )))),
         
         #### Set up a Challenge Page
         tabItem(
@@ -213,7 +214,7 @@ ui <- list(
           starting location for any location on the board, assuming that each 
             move takes the knight to each of its possible moves with equal 
             probability?"),
-         
+          
           tabsetPanel(
             id="challengeTabs",
             tabPanel("Home", value="home",
@@ -282,11 +283,11 @@ ui <- list(
                      div(style ="display:inline-block", 
                          htmlOutput("fillinFeedback5")),
                      div(style = "display:inline-block", 
-                     p(' weights all equal because the knight is equally likely 
+                         p(' weights all equal because the knight is equally likely 
                        to go to any of its possible moves.')),
                      br(),
                      actionButton("submitFillIn","Submit Answer"),
-                    bsButton("next0", "Next"))
+                     bsButton("next0", "Next"))
             ,
             tabPanel("Pt 1", value="pt1",
                      sidebarLayout(
@@ -296,68 +297,68 @@ ui <- list(
                        most of which will be 0.", "Instead, let's start by figuring
                        out how many branches will lead from each node (i.e. square
                        on the board). Fill in these values below.",
-                      fluidRow(
-                        column(width = 6, 
-                               fluidRow(column(width=8, 
-                                               numericInput("branchesA", 
-                                                            label="Edges From A", 
-                                                            value=0, 
-                                                            min=0, 
-                                                            max=10)),
-                                        column(width = 4, 
-                                               br(), 
-                                               uiOutput("correctBranchA"))),
-                               fluidRow(column(width=8, 
-                                               numericInput("branchesB", 
-                                                            label="Edges From B",
-                                                            value=0, 
-                                                            min=0,
-                                                            max=10)),
-                                        column(width = 4, 
-                                               br(), 
-                                               uiOutput("correctBranchB"))),
-                               fluidRow(column(width=8, 
-                                               numericInput("branchesC", 
-                                                            label="Edges From C", 
-                                                            value=0, 
-                                                            min=0, 
-                                                            max=10)),
-                                        column(width = 4, 
-                                               br(), 
-                                               uiOutput("correctBranchC")))),
-                        column(width = 6, 
-                               fluidRow(column(width=8, 
-                                               numericInput("branchesD", 
-                                                            label="Edges From D", 
-                                                            value=0,
-                                                            min=0, 
-                                                            max=10)),
-                                        column(width = 4, 
-                                               br(), 
-                                               uiOutput("correctBranchD"))),
-                               fluidRow(column(width=8, 
-                                               numericInput("branchesE", 
-                                                            label="Edges From E", 
-                                                            value=0, 
-                                                            min=0, 
-                                                            max=10)),
-                                        column(width = 4, 
-                                               br(), 
-                                               uiOutput("correctBranchE"))))
-                      ),
-                      actionButton("checkNumBranches", "Check Answers")
+                                    fluidRow(
+                                      column(width = 6, 
+                                             fluidRow(column(width=8, 
+                                                             numericInput("branchesA", 
+                                                                          label="Edges From A", 
+                                                                          value=0, 
+                                                                          min=0, 
+                                                                          max=10)),
+                                                      column(width = 4, 
+                                                             br(), 
+                                                             uiOutput("correctBranchA"))),
+                                             fluidRow(column(width=8, 
+                                                             numericInput("branchesB", 
+                                                                          label="Edges From B",
+                                                                          value=0, 
+                                                                          min=0,
+                                                                          max=10)),
+                                                      column(width = 4, 
+                                                             br(), 
+                                                             uiOutput("correctBranchB"))),
+                                             fluidRow(column(width=8, 
+                                                             numericInput("branchesC", 
+                                                                          label="Edges From C", 
+                                                                          value=0, 
+                                                                          min=0, 
+                                                                          max=10)),
+                                                      column(width = 4, 
+                                                             br(), 
+                                                             uiOutput("correctBranchC")))),
+                                      column(width = 6, 
+                                             fluidRow(column(width=8, 
+                                                             numericInput("branchesD", 
+                                                                          label="Edges From D", 
+                                                                          value=0,
+                                                                          min=0, 
+                                                                          max=10)),
+                                                      column(width = 4, 
+                                                             br(), 
+                                                             uiOutput("correctBranchD"))),
+                                             fluidRow(column(width=8, 
+                                                             numericInput("branchesE", 
+                                                                          label="Edges From E", 
+                                                                          value=0, 
+                                                                          min=0, 
+                                                                          max=10)),
+                                                      column(width = 4, 
+                                                             br(), 
+                                                             uiOutput("correctBranchE"))))
+                                    ),
+                                    actionButton("checkNumBranches", "Check Answers")
                        ),
                        
                        mainPanel(width=6,
-                        "Below illustrates the chess board. Each label 
+                                 "Below illustrates the chess board. Each label 
                         corresponds to a number of potential moves for the knight.",           
-                       dataTableOutput("chessBoard", width=320)
+                                 dataTableOutput("chessBoard", width=320)
                        )
                      ),
                      bsButton("next1", "Next")
                      
                      
-                     ),
+            ),
             tabPanel("Pt 2", value="pt2",
                      tableOutput("table"),
                      "Assume the weight of each edge is 1 since they all must be 
@@ -401,31 +402,31 @@ ui <- list(
                      actionButton("checkFinAns", "Check Answers")
                      
                      
-                     ),
+            ),
             tabPanel("Simulation", value="sim",
                      sidebarLayout(
                        sidebarPanel( width=6,
-                       p("This tab allows you to simulate the knight's moves 
+                                     p("This tab allows you to simulate the knight's moves 
                        around the chessboard. Click a square on the chessboard 
                        to move the knight there. You can then either use the 
                        Step button to allow the knight to move around the board 
                        one step at a time or use the Simulate button to see how 
                        many jumps it will take the knight to return to its
                        target position, the colored square, in one simulation"),
-                       actionButton("step", "Step"),
-                       actionButton("resetStep", "Reset Step Count"),
-                       textOutput("stepCount"),
-                       actionButton("push", "Simulate"),
-                       textOutput("text")),
-                    mainPanel(width=6,
-                       plotOutput("ggstyle", click="start"), # Clickable plot to 
-                                                             # define chess board
-                       htmlOutput("chessBoardAlt")
-                    )),
+                                     actionButton("step", "Step"),
+                                     actionButton("resetStep", "Reset Step Count"),
+                                     textOutput("stepCount"),
+                                     actionButton("push", "Simulate"),
+                                     textOutput("text")),
+                       mainPanel(width=6,
+                                 plotOutput("ggstyle", click="start"), # Clickable plot to 
+                                 # define chess board
+                                 htmlOutput("chessBoardAlt")
+                       )),
             )
           )
         ),
-
+        
         #### Set up the References Page
         tabItem(
           tabName = "References",
@@ -475,7 +476,7 @@ ui <- list(
             class = "hangingindent", 
             HTML(paste("Ross S. M. (2014),", tags$em("Introduction to Probability Models"), 
                        "(11th ed.), Amsterdam: Elsevier/Academic Press"
-          ))), 
+            ))), 
           p(
             class = "hangingindent", 
             "Wickham, H., François, R., Henry L., and Müller, K. (2020), dplyr: 
@@ -514,7 +515,7 @@ server <- function(input, output, session) {
       type = "info"
     )
   })
-
+  
   #Makes sure weights are numeric
   weights<-reactive({as.numeric(input$weights)})
   
@@ -630,7 +631,7 @@ server <- function(input, output, session) {
   output$chainMat<-renderTable({displayCorrectMatrix()}, 
                                rownames=TRUE, 
                                striped=FALSE)
-
+  
   #Sets up matrix input for transition matrix
   output$uMat<-renderUI({
     matrixInput("userMatrix", 
@@ -670,20 +671,20 @@ server <- function(input, output, session) {
   checkFillins <- eventReactive(input$submitFillIn, {
     output$fillinFeedback1 <- renderUI({correctnessPic(input$fillinAns1 == 
                                                          "squares on the board")})
-  output$fillinFeedback2 <- renderUI({correctnessPic(input$fillinAns2 == 
-                                                       "potential moves from the 
+    output$fillinFeedback2 <- renderUI({correctnessPic(input$fillinAns2 == 
+                                                         "potential moves from the 
                                                      knight's position")})
-  output$fillinFeedback3 <- renderUI({correctnessPic(!(is.null(input$fillinAns3)) 
-                                                     && input$fillinAns3 == 64)})
-  output$fillinFeedback4 <- renderUI({correctnessPic(input$fillinAns4 == "vertex")})
-  output$fillinFeedback5 <- renderUI({correctnessPic(input$fillinAns5 == "edge")})})
+    output$fillinFeedback3 <- renderUI({correctnessPic(!(is.null(input$fillinAns3)) 
+                                                       && input$fillinAns3 == 64)})
+    output$fillinFeedback4 <- renderUI({correctnessPic(input$fillinAns4 == "vertex")})
+    output$fillinFeedback5 <- renderUI({correctnessPic(input$fillinAns5 == "edge")})})
   
   correctFillInAns <- eventReactive(input$submitFillIn, {
     print(c(input$fillinAns1 == "squares on the board", 
-         input$fillinAns2 == "potential moves from the knight's position", 
-         !(is.null(input$fillinAns3)) && input$fillinAns3 == 64,
-         input$fillinAns4 == "vertex",
-         input$fillinAns5 == "edge"))
+            input$fillinAns2 == "potential moves from the knight's position", 
+            !(is.null(input$fillinAns3)) && input$fillinAns3 == 64,
+            input$fillinAns4 == "vertex",
+            input$fillinAns5 == "edge"))
     print(c(input$fillinAns1 == "squares on the board", 
             input$fillinAns2 == "potential moves from the knight's position", 
             !(is.null(input$fillinAns3)) && input$fillinAns3 == 64,
@@ -699,11 +700,11 @@ server <- function(input, output, session) {
   
   observeEvent(input$submitFillIn, {
     # checkFillins()
-      output$fillinFeedback1 <- renderUI({correctnessPic(correctFillInAns()[1])})
-      output$fillinFeedback2 <- renderUI({correctnessPic(correctFillInAns()[2])})
-      output$fillinFeedback3 <- renderUI({correctnessPic(correctFillInAns()[3])})
-      output$fillinFeedback4 <- renderUI({correctnessPic(correctFillInAns()[4])})
-      output$fillinFeedback5 <- renderUI({correctnessPic(correctFillInAns()[5])})
+    output$fillinFeedback1 <- renderUI({correctnessPic(correctFillInAns()[1])})
+    output$fillinFeedback2 <- renderUI({correctnessPic(correctFillInAns()[2])})
+    output$fillinFeedback3 <- renderUI({correctnessPic(correctFillInAns()[3])})
+    output$fillinFeedback4 <- renderUI({correctnessPic(correctFillInAns()[4])})
+    output$fillinFeedback5 <- renderUI({correctnessPic(correctFillInAns()[5])})
     
   })
   
@@ -798,7 +799,7 @@ server <- function(input, output, session) {
   eCheck <-eventReactive(input$checkFinAns,{
     correctnessPic(!is.na(input$chessAnsE) && input$chessAnsE==42)})
   output$ansE <-renderUI({eCheck()})
-
+  
   # Move between tabs using the Next button
   observeEvent(input$next0, {updateTabsetPanel(session, 
                                                "challengeTabs", 
@@ -806,7 +807,7 @@ server <- function(input, output, session) {
   observeEvent(input$next1, {updateTabsetPanel(session, 
                                                "challengeTabs", 
                                                selected="pt2")})
-
+  
   # Table of numbers of branches and number of occurences 
   output$table<-renderTable({matrix(c(4,2,8,3,20,4,16,6,16,8), 
                                     nrow = 2, 
@@ -815,16 +816,16 @@ server <- function(input, output, session) {
                                                     c("A","B","C","D","E")))}, 
                             rownames=T, 
                             striped=F)
-
+  
   # FOR CHESSBOARD SIMULATION
-
+  
   # Defines a move for the knight
   # Input: current location of the knight
   # Output: new location for the knight
   move<-function(point){
     newPoint<-c(0,0) # Initialization to allow loop to start
     rand<-sample(1:8, size=8, replace=FALSE) # Random ordering of numbers 1-8 
-                                             # to define moves
+    # to define moves
     index<-1 # Allow to walk through rand in case first n points are invalid
     while(newPoint[1]>8||newPoint[1]<1||newPoint[2]>8||newPoint[2]<1){
       # Define a new location for each number (starts at up 2 left 1 then works 
@@ -908,7 +909,7 @@ server <- function(input, output, session) {
   # Outputs number of times it took the knight to return to its target
   output$text<-renderText({    
     if(simulate$showText){
-    myText()}
+      myText()}
     else{""}})
   
   # If simulate button is pushed, make sure text giving result is shown
@@ -924,7 +925,7 @@ server <- function(input, output, session) {
                  size=21, 
                  alpha=1/2) +
       geom_point(shape="\u265E", size=15) + #\u265E is the unicode character 
-                                            # for the knight
+      # for the knight
       # creates correct axes (without extra room after bounds like xlim and ylim)
       scale_x_continuous(limits=c(.5, 8.5), expand = c(0, 0), breaks=1:8) +
       scale_y_continuous(limits=c(.5, 8.5), expand = c(0, 0), breaks=1:8) +
@@ -976,8 +977,8 @@ server <- function(input, output, session) {
                       })")
     ))
   })
-  
-  }
+}
 
 # Create Shiny App using BOAST App template
 boastUtils::boastApp(ui = ui, server = server)
+
