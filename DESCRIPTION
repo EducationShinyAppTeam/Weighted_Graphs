@@ -1,0 +1,18 @@
+Title: Weighted Graphs
+ShortName: Weighted Graphs
+Date: 2020-12-17
+Lifecycle: experimental
+Authors@R: c(
+    person(given = "Leah", family = "Hunt", email = "lmh5964@psu.edu", role = c("aut", "cre"))
+  )
+Chapter: Stochastic Processes
+Description: c(
+    "This app explores the applications of Markov Chains to weighted graphs."
+  )
+LearningObjectives: c()
+DisplayMode: Normal
+URL: https://psu-eberly.shinyapps.io/Weighted_Graphs
+BugReports: https://github.com/EducationShinyAppTeam/Weighted_Graphs/issues
+License: CC-BY-NC-SA-4.0
+Tags: multilevel
+Type: Shiny
